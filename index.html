@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Udaipur Diaries — Home</title>
+  <style>
+    /* Simple shared styles */
+    :root { --accent:#0b6; --nav-bg: #fff; --maxw:1100px; }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Arial; margin:0; color:#222; line-height:1.45}
+    header{background:#f8f8f8; border-bottom:1px solid #eee; position:sticky; top:0; z-index:20}
+    .container{max-width:var(--maxw); margin:0 auto; padding:1rem}
+    nav{display:flex; gap:1rem; align-items:center}
+    nav a{color:#222; text-decoration:none; padding:.6rem .8rem; border-radius:6px}
+    nav a:hover{background:#eee}
+    .hero{display:grid; grid-template-columns:1fr; align-items:center; gap:1rem; padding:2rem 1rem}
+    .hero .hero-img{width:100%; height:320px; object-fit:cover; border-radius:8px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+    .card{background:#fff;border:1px solid #eee;border-radius:8px;padding:1rem; box-shadow:0 6px 18px rgba(10,10,10,.03)}
+    .card img{width:100%; height:140px; object-fit:cover; border-radius:6px}
+    footer{padding:1rem; text-align:center; color:#666; font-size:.9rem}
+    .cta{display:inline-block; padding:.6rem 1rem; background:var(--accent); color:#fff; border-radius:6px; text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-weight:700">Udaipur Diaries</div>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="itinerary.html">Itinerary</a>
+        <a href="nearby.html">Nearby</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Explore Udaipur with Me!</h1>
+        <p>Welcome to my travel journal — photos, itineraries, and tips for visiting the City of Lakes.</p>
+        <p><a class="cta" href="destinations.html">See featured destinations</a></p>
+      </div>
+      <img class="hero-img" src="https://via.placeholder.
