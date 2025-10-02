@@ -1,98 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Udaipur Diaries — Destinations</title>
-  <style>
-    :root{--maxw:1100px}
-    *{box-sizing:border-box}
-    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;color:#222}
-    header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0}
-    .container{max-width:var(--maxw);margin:0 auto;padding:1rem}
-    nav{display:flex;gap:1rem;align-items:center}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
-    .flip{perspective:1000px}
-    .flip-inner{position:relative;width:100%;height:260px;transform-style:preserve-3d;transition:transform .6s}
-    .flip:hover .flip-inner{transform:rotateY(180deg)}
-    .flip-front,.flip-back{position:absolute;inset:0;border-radius:8px;backface-visibility:hidden;overflow:hidden;border:1px solid #eee}
-    .flip-front img{width:100%;height:100%;object-fit:cover}
-    .flip-back{background:#fff;padding:1rem;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaipur Diaries - Destinations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-      <div style="font-weight:700">Udaipur Diaries</div>
-      <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="itinerary.html">Itinerary</a>
-        <a href="nearby.html">Nearby</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <h1>Destinations</h1>
-    <p>Below are some featured places in Udaipur. (All content is placeholder for Milestone 1)</p>
-
-    <div class="grid" aria-live="polite">
-      <!-- Flip card 1 -->
-      <div class="flip card" role="article" aria-label="City Palace">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://via.placeholder.com/600x400?text=City+Palace" alt="City Palace placeholder image">
-          </div>
-          <div class="flip-back">
-            <h3>City Palace</h3>
-            <p>Quick facts: Location - Old City; Best time - Oct–Mar; Cost - moderate. (Placeholder)</p>
-          </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Udaipur Diaries</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="destinations.html" class="nav-link active">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link">Travel Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-      </div>
+    </nav>
 
-      <!-- Flip card 2 -->
-      <div class="flip card" role="article" aria-label="Lake Pichola">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://via.placeholder.com/600x400?text=Lake+Pichola" alt="Lake Pichola placeholder image">
-          </div>
-          <div class="flip-back">
-            <h3>Lake Pichola</h3>
-            <p>Quick facts: Boat rides, best at sunset. (Placeholder)</p>
-          </div>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Explore Udaipur</h1>
+            <p>Discover the royal heritage and natural beauty of the City of Lakes</p>
         </div>
-      </div>
+    </section>
 
-      <!-- Flip card 3 -->
-      <div class="flip card" role="article" aria-label="Jagdish Temple">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://via.placeholder.com/600x400?text=Jagdish+Temple" alt="Jagdish Temple placeholder image">
-          </div>
-          <div class="flip-back">
-            <h3>Jagdish Temple</h3>
-            <p>Quick facts: Central location, beautiful architecture. (Placeholder)</p>
-          </div>
+    <!-- Destinations Grid -->
+    <section class="destinations-section">
+        <div class="container">
+            <h2 class="section-title">Explore Udaipur Destinations</h2>
+            <div class="flip-cards-container">
+                <!-- City Palace -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="City Palace">
+                            <h3>City Palace</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>City Palace</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>Old City, Udaipur</span></p>
+                                <p><strong>History:</strong> <span>Built in 1559 by Maharana Udai Singh II</span></p>
+                                <p><strong>Best Time:</strong> <span>October to March</span></p>
+                                <p><strong>Entry Fee:</strong> <span>₹300 for adults</span></p>
+                                <p><strong>Timings:</strong> <span>9:30 AM - 5:30 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lake Pichola -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lake Pichola">
+                            <h3>Lake Pichola</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Lake Pichola</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>Heart of Udaipur</span></p>
+                                <p><strong>History:</strong> <span>Artificial lake built in 1362 AD</span></p>
+                                <p><strong>Best Time:</strong> <span>Sunset boat rides</span></p>
+                                <p><strong>Boat Fee:</strong> <span>₹400 for adults</span></p>
+                                <p><strong>Timings:</strong> <span>10:00 AM - 6:00 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jagdish Temple -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jagdish Temple">
+                            <h3>Jagdish Temple</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Jagdish Temple</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>Near City Palace</span></p>
+                                <p><strong>History:</strong> <span>Built in 1651 by Maharana Jagat Singh</span></p>
+                                <p><strong>Best Time:</strong> <span>Early morning prayers</span></p>
+                                <p><strong>Entry Fee:</strong> <span>Free</span></p>
+                                <p><strong>Timings:</strong> <span>5:00 AM - 9:00 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fateh Sagar Lake -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fateh Sagar Lake">
+                            <h3>Fateh Sagar Lake</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Fateh Sagar Lake</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>North of Lake Pichola</span></p>
+                                <p><strong>History:</strong> <span>Built in 1678 by Maharana Jai Singh</span></p>
+                                <p><strong>Best Time:</strong> <span>Evening sunset views</span></p>
+                                <p><strong>Boat Fee:</strong> <span>₹150 for adults</span></p>
+                                <p><strong>Timings:</strong> <span>9:00 AM - 6:00 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sajjangarh Palace -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sajjangarh Monsoon Palace">
+                            <h3>Sajjangarh Palace</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Sajjangarh Palace</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>Bansdara Hills, Udaipur</span></p>
+                                <p><strong>History:</strong> <span>Built in 1884 by Maharana Sajjan Singh</span></p>
+                                <p><strong>Best Time:</strong> <span>Sunset views</span></p>
+                                <p><strong>Entry Fee:</strong> <span>₹100 for adults</span></p>
+                                <p><strong>Timings:</strong> <span>8:00 AM - 6:00 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hathi Pol Bazaar -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Hathi Pol Bazaar">
+                            <h3>Hathi Pol Bazaar</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Hathi Pol Bazaar</h3>
+                            <div class="card-info">
+                                <p><strong>Location:</strong> <span>Old City, near City Palace</span></p>
+                                <p><strong>History:</strong> <span>Centuries-old trading hub</span></p>
+                                <p><strong>Best Time:</strong> <span>Morning or evening</span></p>
+                                <p><strong>Entry Fee:</strong> <span>Free</span></p>
+                                <p><strong>Timings:</strong> <span>9:00 AM - 8:00 PM</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Flip card 4 -->
-      <div class="flip card" role="article" aria-label="Monsoon Palace">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="https://via.placeholder.com/600x400?text=Monsoon+Palace" alt="Monsoon Palace placeholder image">
-          </div>
-          <div class="flip-back">
-            <h3>Monsoon Palace</h3>
-            <p>Quick facts: Great sunset viewpoint. (Placeholder)</p>
-          </div>
+    <!-- Contact Section -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Ready to explore the City of Lakes? Contact us for travel tips and recommendations!</p>
+            <div class="contact-info">
+                <p>Email: info@udaipurdiaries.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+            <p class="copyright">&copy; 2024 Udaipur Diaries. All rights reserved.</p>
         </div>
-      </div>
-    </div>
-  </main>
+    </footer>
 
-  <footer style="padding:1rem;text-align:center;color:#666">Udaipur Diaries — placeholder site</footer>
+    <script src="script.js"></script>
 </body>
 </html>
