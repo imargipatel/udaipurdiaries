@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaipur Diaries - Travel Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Udaipur Diaries</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="destinations.html" class="nav-link">Destinations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link active">Travel Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Travel Gallery</h1>
+            <p>Visual journey through the City of Lakes</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="palaces">Palaces</button>
+                <button class="filter-btn" data-filter="lakes">Lakes</button>
+                <button class="filter-btn" data-filter="ghats">Ghats</button>
+                <button class="filter-btn" data-filter="bazaar">Bazaar</button>
+                <button class="filter-btn" data-filter="art-handicrafts">Art & Handicrafts</button>
+                <button class="filter-btn" data-filter="restaurants-cafes">Restaurants & Cafes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Palaces Category -->
+                <div class="gallery-item" data-category="palaces">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="City Palace">
+                    <div class="gallery-overlay">
+                        <h3>City Palace</h3>
+                        <p>Royal architecture overlooking Lake Pichola</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="palaces">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jag Mandir">
+                    <div class="gallery-overlay">
+                        <h3>Jag Mandir</h3>
+                        <p>Island palace in Lake Pichola</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="palaces">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sajjangarh Palace">
+                    <div class="gallery-overlay">
+                        <h3>Sajjangarh Palace</h3>
+                        <p>Monsoon Palace with panoramic views</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="palaces">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Taj Lake Palace">
+                    <div class="gallery-overlay">
+                        <h3>Taj Lake Palace</h3>
+                        <p>Luxury hotel floating on Lake Pichola</p>
+                    </div>
+                </div>
+
+                <!-- Lakes Category -->
+                <div class="gallery-item" data-category="lakes">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lake Pichola">
+                    <div class="gallery-overlay">
+                        <h3>Lake Pichola</h3>
+                        <p>Heart of Udaipur with stunning reflections</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="lakes">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fateh Sagar Lake">
+                    <div class="gallery-overlay">
+                        <h3>Fateh Sagar Lake</h3>
+                        <p>Beautiful lake with three islands</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="lakes">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sunset at Lake">
+                    <div class="gallery-overlay">
+                        <h3>Sunset Views</h3>
+                        <p>Magical sunset over the lakes</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="lakes">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lake Boat Ride">
+                    <div class="gallery-overlay">
+                        <h3>Lake Boat Ride</h3>
+                        <p>Peaceful boat journey on serene waters</p>
+                    </div>
+                </div>
+
+                <!-- Ghats Category -->
+                <div class="gallery-item" data-category="ghats">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Gangaur Ghat">
+                    <div class="gallery-overlay">
+                        <h3>Gangaur Ghat</h3>
+                        <p>Historic ghat with beautiful architecture</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="ghats">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ambrai Ghat">
+                    <div class="gallery-overlay">
+                        <h3>Ambrai Ghat</h3>
+                        <p>Perfect spot for sunset views</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="ghats">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lal Ghat">
+                    <div class="gallery-overlay">
+                        <h3>Lal Ghat</h3>
+                        <p>Colorful ghat with heritage hotels</p>
+                    </div>
+                </div>
+
+                <!-- Bazaar Category -->
+                <div class="gallery-item" data-category="bazaar">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Hathi Pol Bazaar">
+                    <div class="gallery-overlay">
+                        <h3>Hathi Pol Bazaar</h3>
+                        <p>Vibrant market with traditional crafts</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bazaar">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Bada Bazaar">
+                    <div class="gallery-overlay">
+                        <h3>Bada Bazaar</h3>
+                        <p>Traditional market for textiles and jewelry</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bazaar">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Clock Tower Market">
+                    <div class="gallery-overlay">
+                        <h3>Clock Tower Market</h3>
+                        <p>Bustling market around historic clock tower</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bazaar">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Street Vendors">
+                    <div class="gallery-overlay">
+                        <h3>Street Vendors</h3>
+                        <p>Local vendors selling traditional items</p>
+                    </div>
+                </div>
+
+                <!-- Art & Handicrafts Category -->
+                <div class="gallery-item" data-category="art-handicrafts">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Miniature Paintings">
+                    <div class="gallery-overlay">
+                        <h3>Miniature Paintings</h3>
+                        <p>Exquisite Rajasthani miniature art</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="art-handicrafts">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Pottery Workshop">
+                    <div class="gallery-overlay">
+                        <h3>Pottery Workshop</h3>
+                        <p>Traditional pottery making techniques</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="art-handicrafts">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Textile Weaving">
+                    <div class="gallery-overlay">
+                        <h3>Textile Weaving</h3>
+                        <p>Handloom weaving of traditional fabrics</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="art-handicrafts">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Jewelry Making">
+                    <div class="gallery-overlay">
+                        <h3>Jewelry Making</h3>
+                        <p>Intricate silver jewelry craftsmanship</p>
+                    </div>
+                </div>
+
+                <!-- Restaurants & Cafes Category -->
+                <div class="gallery-item" data-category="restaurants-cafes">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Rooftop Restaurant">
+                    <div class="gallery-overlay">
+                        <h3>Rooftop Restaurant</h3>
+                        <p>Dining with stunning lake views</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="restaurants-cafes">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Traditional Thali">
+                    <div class="gallery-overlay">
+                        <h3>Traditional Thali</h3>
+                        <p>Authentic Rajasthani cuisine</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="restaurants-cafes">
+                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lake View Cafe">
+                    <div class="gallery-overlay">
+                        <h3>Lake View Cafe</h3>
+                        <p>Coffee with panoramic lake views</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="restaurants-cafes">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Street Food Stalls">
+                    <div class="gallery-overlay">
+                        <h3>Street Food Stalls</h3>
+                        <p>Delicious local street food delicacies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Image Preview -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Ready to explore the City of Lakes? Contact us for travel tips and recommendations!</p>
+            <div class="contact-info">
+                <p>Email: info@udaipurdiaries.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+            <p class="copyright">&copy; 2024 Udaipur Diaries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
