@@ -44,7 +44,7 @@ h3 {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: none;
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
@@ -61,7 +61,7 @@ h3 {
 }
 
 .nav-logo h2 {
-    color: #8B4513;
+    color: #cc6a24f2;
     font-size: 1.8rem;
     margin: 0;
 }
@@ -82,7 +82,7 @@ h3 {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #8B4513;
+    color: #cc6a24f2;
 }
 
 .nav-link.active::after {
@@ -92,7 +92,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #8B4513;
+    background: #cc6a24f2;
 }
 
 .hamburger {
@@ -112,8 +112,8 @@ h3 {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+    background:none,
+                url('assets/images/hero/City Palace Udaipur, Rajasthan.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -158,7 +158,7 @@ h3 {
 .cta-button:hover {
     background: #A0522D;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
 }
 
 /* Page Header */
