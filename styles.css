@@ -39,13 +39,18 @@ h3 {
     font-size: 1.8rem;
 }
 
+h6 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #323131;
+}
 /* Navigation */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter:none;
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -61,7 +66,7 @@ h3 {
 }
 
 .nav-logo h2 {
-    color: #cc6a24f2;
+    color: #e09636f2;
     font-size: 1.8rem;
     margin: 0;
 }
@@ -113,7 +118,7 @@ h3 {
 .hero {
     height: 100vh;
     background:none,
-                url('assets/images/hero/City Palace Udaipur, Rajasthan.jpg');
+                url('assets/images/hero/udaipur2.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -138,14 +143,16 @@ h3 {
 
 .hero-subtitle {
     font-size: 1.5rem;
+    font-weight: 600;
+    color: #f4f4f8;
     margin-bottom: 2rem;
-    font-weight: 300;
+    font-weight: 500;
     animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .cta-button {
     display: inline-block;
-    background: #8B4513;
+    background: #c6631d;
     color: white;
     padding: 15px 30px;
     text-decoration: none;
@@ -164,7 +171,7 @@ h3 {
 /* Page Header */
 .page-header {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #8B4513, #A0522D);
+    background: linear-gradient(135deg, #c6631d, #A0522D);
     color: white;
     text-align: center;
 }
@@ -200,7 +207,7 @@ h3 {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: #8B4513;
+    background: #c6631d;
 }
 
 /* Flip Cards */
@@ -289,12 +296,12 @@ h3 {
 }
 
 .flip-card-back h3 {
-    color: #8B4513;
+    color: #c6631d;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
-    border-bottom: 2px solid #8B4513;
+    border-bottom: 2px solid #c6631d;
     padding-bottom: 0.5rem;
     width: 100%;
 }
@@ -314,7 +321,7 @@ h3 {
 }
 
 .card-info p strong {
-    color: #8B4513;
+    color: #c6631d;
     font-weight: 600;
     min-width: 80px;
     flex-shrink: 0;
@@ -378,7 +385,7 @@ h3 {
 }
 
 .destination-location {
-    color: #8B4513;
+    color: #c6631d;
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -395,7 +402,7 @@ h3 {
 }
 
 .detail-item h4 {
-    color: #8B4513;
+    color: #c6631d;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
@@ -420,8 +427,8 @@ h3 {
 
 .filter-btn {
     background: white;
-    border: 2px solid #8B4513;
-    color: #8B4513;
+    border: 2px solid #c6631d;
+    color: #c6631d;
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
@@ -431,7 +438,7 @@ h3 {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: #8B4513;
+    background: #c6631d;
     color: white;
 }
 
@@ -531,7 +538,7 @@ h3 {
 }
 
 .close:hover {
-    color: #8B4513;
+    color: #c6631d;
 }
 
 #caption {
@@ -547,7 +554,7 @@ h3 {
 
 /* Contact Section */
 .contact-section {
-    background: #8B4513;
+    background: #c6631d;
     color: white;
     padding: 80px 0;
     text-align: center;
