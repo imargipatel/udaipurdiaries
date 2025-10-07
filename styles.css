@@ -584,6 +584,46 @@ h6 {
     font-size: 0.9rem;
 }
 
+/* Gallery Loading States */
+.loading, .error {
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.loading {
+    color: #8B4513;
+    font-weight: 600;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* Placeholder Images */
+.gallery-item.placeholder {
+    opacity: 0.8;
+}
+
+.gallery-item.placeholder:hover {
+    transform: none;
+}
+
+.gallery-item.placeholder .gallery-overlay {
+    background: rgba(139, 69, 19, 0.9);
+}
+
+.gallery-item.placeholder .gallery-overlay h3 {
+    color: #fff;
+    font-style: italic;
+}
+
+.gallery-item.placeholder .gallery-overlay p {
+    color: #f0f0f0;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
