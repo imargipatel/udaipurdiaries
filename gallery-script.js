@@ -7,10 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!filterButtons.length || !galleryGrid) return;
 
-    // Global variables for keyboard navigation
+    // Global variables for keyboard navigation and touch events
     let currentImageIndex = 0;
     let currentImages = [];
     let currentCategory = 'all';
+    
+    // Touch event variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    let minSwipeDistance = 50; // Minimum distance for a swipe
 
     // Image data mapping - maps filter categories to folder names and image info
     const imageData = {
@@ -267,6 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Add touch event handlers for mobile navigation
+        addTouchEventHandlers();
     }
 
     // Function to open modal with proper image sizing
@@ -309,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         currentImageIndex = (currentImageIndex + 1) % currentImages.length;
         updateModalImage();
+        showNavigationFeedback('next');
     }
 
     // Function to navigate to previous image
@@ -317,6 +328,36 @@ document.addEventListener('DOMContentLoaded', () => {
         
         currentImageIndex = currentImageIndex === 0 ? currentImages.length - 1 : currentImageIndex - 1;
         updateModalImage();
+        showNavigationFeedback('previous');
+    }
+
+    // Function to show visual feedback for navigation
+    function showNavigationFeedback(direction) {
+        const modal = document.getElementById('imageModal');
+        const feedback = document.createElement('div');
+        feedback.className = 'navigation-feedback';
+        feedback.textContent = direction === 'next' ? '→' : '←';
+        feedback.style.cssText = `
+            position: fixed;
+            top: 50%;
+            ${direction === 'next' ? 'right' : 'left'}: 50px;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 3rem;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 2002;
+            animation: fadeInOut 0.5s ease;
+        `;
+        
+        modal.appendChild(feedback);
+        
+        // Remove feedback after animation
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 500);
     }
 
     // Function to update modal image
@@ -342,6 +383,72 @@ document.addEventListener('DOMContentLoaded', () => {
             caption.textContent = `${currentImages[currentImageIndex].title} (${currentImageIndex + 1} of ${currentImages.length})`;
         } else {
             caption.textContent = currentImages[currentImageIndex].title;
+        }
+    }
+
+    // Function to add touch event handlers for mobile navigation
+    function addTouchEventHandlers() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        if (!modal || !modalImg) return;
+
+        // Touch start event
+        modal.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        // Touch end event
+        modal.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length === 1) {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                handleSwipeGesture();
+            }
+        }, { passive: true });
+
+        // Prevent default touch behaviors that might interfere
+        modal.addEventListener('touchmove', (e) => {
+            // Allow vertical scrolling but prevent horizontal scrolling
+            if (Math.abs(e.touches[0].clientX - touchStartX) > Math.abs(e.touches[0].clientY - touchStartY)) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+
+    // Function to handle swipe gestures
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const deltaDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        // If it's a very small movement, treat it as a tap to close
+        if (deltaDistance < 10) {
+            // Check if tap was on the background (not on the image)
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const rect = modalImg.getBoundingClientRect();
+            
+            // If tap was outside the image area, close modal
+            if (touchEndX < rect.left || touchEndX > rect.right || 
+                touchEndY < rect.top || touchEndY > rect.bottom) {
+                closeModal();
+            }
+            return;
+        }
+        
+        // Check if horizontal swipe is more significant than vertical
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+            if (deltaX > 0) {
+                // Swipe right - go to previous image
+                navigateToPreviousImage();
+            } else {
+                // Swipe left - go to next image
+                navigateToNextImage();
+            }
         }
     }
 
