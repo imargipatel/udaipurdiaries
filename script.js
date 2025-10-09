@@ -138,39 +138,11 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
 
-        // Detect image orientation and apply appropriate styling
-        const img = card.querySelector('.flip-card-front img');
-        if (img) {
-            // Handle image load event
-            img.addEventListener('load', function() {
-                detectAndApplyImageOrientation(this);
-            });
-            
-            // If image is already loaded
-            if (img.complete) {
-                detectAndApplyImageOrientation(img);
-            }
-        }
+        // Remove special image orientation detection - all images treated the same
     });
 });
 
-// Function to detect image orientation and apply appropriate CSS class
-function detectAndApplyImageOrientation(img) {
-    const flipCardFront = img.closest('.flip-card-front');
-    if (!flipCardFront) return;
-
-    // Remove existing orientation classes
-    flipCardFront.classList.remove('portrait-image', 'landscape-image');
-
-    // Check if image is portrait or landscape
-    const isPortrait = img.naturalHeight > img.naturalWidth;
-    
-    if (isPortrait) {
-        flipCardFront.classList.add('portrait-image');
-    } else {
-        flipCardFront.classList.add('landscape-image');
-    }
-}
+// Removed image orientation detection function - all images now treated the same
 
 // Mobile touch support for flip cards
 document.addEventListener('DOMContentLoaded', function() {
