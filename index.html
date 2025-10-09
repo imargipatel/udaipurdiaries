@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Udaipur Diaries - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&family=Cinzel:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Prata&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -25,7 +25,7 @@
                     <a href="gallery.html" class="nav-link">Travel Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#footer" class="nav-link">Link</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -36,10 +36,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Parallax -->
     <section class="hero">
+        <!-- Parallax Background Layers -->
+        <div class="parallax-layer parallax-bg-1"></div>
+        <div class="parallax-layer parallax-bg-2"></div>
+        <div class="parallax-layer parallax-bg-3"></div>
+        <div class="parallax-layer parallax-bg-4"></div>
+        
+        <!-- Hero Content -->
         <div class="hero-content">
-            <h1 class="hero-title">Udaipur Diaries</h1>
+            <h1 class="hero-title">UDAIPUR DIARIES</h1>
             <p class="hero-subtitle"><h6>Where the waters whisper stories of kings and colors</h6></p>
             <a href="#featured" class="cta-button">Explore Now</a>
         </div>
@@ -55,10 +62,10 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="assets/images/destinations/city palace.jpg" alt="City Palace">
-                            <h3> City Palace</h3>
+                            <h3>City Palace</h3>
                         </div>
                         <div class="flip-card-back">
-                            <h3> City Palace</h3>
+                            <h3>City Palace</h3>
                             <div class="card-info">
                                 <p><strong>Location:</strong> <span>Old City, Udaipur</span></p>
                                 <p><strong>History:</strong> <span>Built in 1559 by Maharana Udai Singh II</span></p>
@@ -73,7 +80,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets\images\destinations\lake pichola.jpg" alt="Lake Pichola">
+                            <img src="assets/images/destinations/lake pichola.jpg" alt="Lake Pichola">
                             <h3>Lake Pichola</h3>
                         </div>
                         <div class="flip-card-back">
@@ -111,7 +118,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="assets\images\destinations\ambrai ghat.jpg" alt="Ambrai Ghat">
+                            <img src="assets/images/destinations/ambrai ghat.jpg" alt="Ambrai Ghat">
                             <h3>Ambrai Ghat</h3>
                         </div>
                         <div class="flip-card-back">
@@ -130,6 +137,69 @@
         </div>
     </section>
 
+    <!-- Destination Detail Modal -->
+    <div id="destinationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-details">
+                        <div class="detail-section">
+                            <h3>Description</h3>
+                            <p id="modalDescription"></p>
+                        </div>
+                        <div class="detail-section">
+                            <h3>Location & History</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <strong>Location:</strong>
+                                    <span id="modalLocation"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <strong>History:</strong>
+                                    <span id="modalHistory"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h3>What to Expect</h3>
+                            <ul id="modalHighlights"></ul>
+                        </div>
+                        <div class="detail-section">
+                            <h3>Visitor Information</h3>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <strong>Entry Fee:</strong>
+                                    <span id="modalEntryFee"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Timings:</strong>
+                                    <span id="modalTimings"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Best Time to Visit:</strong>
+                                    <span id="modalBestTime"></span>
+                                </div>
+                                <div class="detail-item">
+                                    <strong>Duration:</strong>
+                                    <span id="modalDuration"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section" id="modalTipsSection" style="display: none;">
+                            <h3>Travel Tips</h3>
+                            <p id="modalTips"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <footer id="contact" class="contact-section">
         <div class="container">
@@ -139,7 +209,7 @@
             <div class="contact-info">
                 <p>Email:margipatel.mp16@gmail.com</p>
             </div>
-            <p class="copyright">&copy; 2024 Udaipur Diaries. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Udaipur Diaries. All rights reserved.</p>
         </div>
     </footer>
 
