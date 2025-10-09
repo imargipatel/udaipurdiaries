@@ -645,6 +645,17 @@ h6 {
     cursor: zoom-in;
 }
 
+/* Touch feedback for mobile */
+@media (hover: none) and (pointer: coarse) {
+    #imageModal .modal-content {
+        transition: transform 0.2s ease;
+    }
+    
+    #imageModal .modal-content:active {
+        transform: translate(-50%, -50%) scale(0.98);
+    }
+}
+
 #imageModal .close {
     position: absolute;
     top: 15px;
@@ -698,6 +709,25 @@ h6 {
     opacity: 0.8;
     pointer-events: none;
     z-index: 2001;
+}
+
+/* Mobile navigation hints */
+@media (max-width: 768px) {
+    #imageModal::before {
+        content: "Swipe ← → to navigate • Tap outside to close";
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #imageModal::before {
+        content: "Swipe ← → to navigate";
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        bottom: 10px;
+    }
 }
 
 /* Contact Section */
@@ -1060,6 +1090,12 @@ h6 {
     to { opacity: 1; }
 }
 
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-50%) scale(0.5); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+    100% { opacity: 0; transform: translateY(-50%) scale(0.8); }
+}
+
 .modal-image:hover img {
     transform: scale(1.05);
     cursor: zoom-in;
@@ -1359,8 +1395,14 @@ h6 {
         top: 10px;
         right: 15px;
         font-size: 30px;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
     }
     
     #caption {
