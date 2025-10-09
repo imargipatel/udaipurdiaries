@@ -364,7 +364,10 @@ h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
+    /* Better handling for different image orientations */
+    background-color: #f8f9fa;
 }
 
 .flip-card:hover .flip-card-front img {
@@ -860,6 +863,21 @@ h6 {
         height: 320px;
     }
 
+    /* Mobile-specific flip card improvements */
+    .flip-card-front img {
+        object-fit: contain;
+        object-position: center;
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    .flip-card-front {
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -903,6 +921,57 @@ h6 {
 
     .flip-card-inner {
         height: 300px;
+    }
+
+    /* Enhanced mobile flip card image handling */
+    .flip-card-front img {
+        object-fit: contain;
+        object-position: center;
+        background-color: #f8f9fa;
+        padding: 15px;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .flip-card-front {
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .flip-card-front::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        z-index: 1;
+    }
+
+    .flip-card-front img {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Touch-friendly flip cards for mobile */
+    .flip-card {
+        touch-action: manipulation;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        /* Disable hover effects on touch devices */
+        transform: none;
+    }
+
+    /* Show flip hint on mobile */
+    .flip-card::after {
+        content: "Tap for details";
+        font-size: 0.7rem;
+        padding: 4px 8px;
     }
 
     .flip-cards-container {
@@ -1432,6 +1501,27 @@ h6 {
         height: 100px;
         padding: 6px 0;
     }
+}
+
+/* Portrait Image Handling */
+.flip-card-front.portrait-image {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.flip-card-front.portrait-image img {
+    object-fit: contain;
+    object-position: center;
+    max-width: 90%;
+    max-height: 90%;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Landscape Image Handling */
+.flip-card-front.landscape-image img {
+    object-fit: cover;
+    object-position: center;
+    padding: 0;
 }
 
 /* Utility Classes */
