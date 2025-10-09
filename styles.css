@@ -893,6 +893,26 @@ h6 {
             border: none;
             border-radius: 0;
         }
+
+        /* Mobile flip card back optimization */
+        .flip-card-back {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .flip-card-back h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-info p {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-info p strong {
+            min-width: 70px;
+        }
     }
 
     .gallery-grid {
@@ -965,6 +985,26 @@ h6 {
             border: none;
             border-radius: 0;
         }
+
+        /* Small mobile flip card back optimization */
+        .flip-card-back {
+            padding: 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .flip-card-back h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-info p {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p strong {
+            min-width: 60px;
+        }
     }
 
     /* Touch-friendly flip cards for mobile - properly isolated */
@@ -983,6 +1023,18 @@ h6 {
             content: "Click for details";
             font-size: 0.8rem;
             padding: 5px 10px;
+        }
+
+        /* Ensure flip card back is properly visible on mobile */
+        .flip-card-back {
+            background: white;
+            border: 2px solid #e5e7eb;
+            overflow-y: auto;
+        }
+
+        /* Mobile flip card animation optimization */
+        .flip-card-inner {
+            transition: transform 0.6s ease;
         }
     }
 
