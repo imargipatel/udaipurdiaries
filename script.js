@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Flip Card Animation Enhancement
+// Flip Card Animation Enhancement and Image Orientation Detection
 document.addEventListener('DOMContentLoaded', function() {
     const flipCards = document.querySelectorAll('.flip-card');
     
@@ -137,6 +137,74 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'scale(1)';
         });
+
+        // Detect image orientation and apply appropriate styling
+        const img = card.querySelector('.flip-card-front img');
+        if (img) {
+            // Handle image load event
+            img.addEventListener('load', function() {
+                detectAndApplyImageOrientation(this);
+            });
+            
+            // If image is already loaded
+            if (img.complete) {
+                detectAndApplyImageOrientation(img);
+            }
+        }
+    });
+});
+
+// Function to detect image orientation and apply appropriate CSS class
+function detectAndApplyImageOrientation(img) {
+    const flipCardFront = img.closest('.flip-card-front');
+    if (!flipCardFront) return;
+
+    // Remove existing orientation classes
+    flipCardFront.classList.remove('portrait-image', 'landscape-image');
+
+    // Check if image is portrait or landscape
+    const isPortrait = img.naturalHeight > img.naturalWidth;
+    
+    if (isPortrait) {
+        flipCardFront.classList.add('portrait-image');
+    } else {
+        flipCardFront.classList.add('landscape-image');
+    }
+}
+
+// Mobile touch support for flip cards
+document.addEventListener('DOMContentLoaded', function() {
+    const flipCards = document.querySelectorAll('.flip-card');
+    
+    flipCards.forEach(card => {
+        let touchStartTime = 0;
+        
+        // Handle touch start
+        card.addEventListener('touchstart', function(e) {
+            touchStartTime = Date.now();
+        }, { passive: true });
+        
+        // Handle touch end (tap)
+        card.addEventListener('touchend', function(e) {
+            const touchEndTime = Date.now();
+            const touchDuration = touchEndTime - touchStartTime;
+            
+            // Only trigger flip if it was a quick tap (not a long press)
+            if (touchDuration < 500) {
+                const flipCardInner = this.querySelector('.flip-card-inner');
+                if (flipCardInner) {
+                    // Toggle flip state
+                    flipCardInner.classList.toggle('flipped');
+                    
+                    // Add CSS for flipped state
+                    if (flipCardInner.classList.contains('flipped')) {
+                        flipCardInner.style.transform = 'rotateY(180deg)';
+                    } else {
+                        flipCardInner.style.transform = 'rotateY(0deg)';
+                    }
+                }
+            }
+        }, { passive: true });
     });
 });
 
