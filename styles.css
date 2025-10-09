@@ -866,7 +866,31 @@ h6 {
         height: 320px;
     }
 
-    /* Mobile-specific flip card improvements - removed special image handling */
+    /* Mobile-specific flip card improvements - properly isolated */
+    @media (max-width: 768px) {
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .flip-card-front h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            color: white;
+            background: none;
+            padding: 1rem;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            border: none;
+            border-radius: 0;
+        }
+    }
 
     .gallery-grid {
         grid-template-columns: 1fr;
@@ -913,23 +937,49 @@ h6 {
         height: 300px;
     }
 
-    /* Enhanced mobile flip card image handling - removed special treatment */
+    /* Enhanced mobile flip card image handling - properly isolated */
+    @media (max-width: 480px) {
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
-    /* Touch-friendly flip cards for mobile */
-    .flip-card {
-        touch-action: manipulation;
+        .flip-card-front h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            color: white;
+            background: none;
+            padding: 1rem;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            border: none;
+            border-radius: 0;
+        }
     }
 
-    .flip-card:hover .flip-card-inner {
-        /* Disable hover effects on touch devices */
-        transform: none;
-    }
+    /* Touch-friendly flip cards for mobile - properly isolated */
+    @media (max-width: 768px) {
+        .flip-card {
+            touch-action: manipulation;
+        }
 
-    /* Show flip hint on mobile */
-    .flip-card::after {
-        content: "Tap for details";
-        font-size: 0.7rem;
-        padding: 4px 8px;
+        .flip-card:hover .flip-card-inner {
+            /* Disable hover effects on touch devices */
+            transform: none;
+        }
+
+        /* Show flip hint on mobile */
+        .flip-card::after {
+            content: "Click for details";
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
     }
 
     .flip-cards-container {
