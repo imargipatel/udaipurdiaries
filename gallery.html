@@ -48,7 +48,15 @@
     <section class="gallery-filter">
         <div class="container">
             <div class="filter-buttons">
-                <!-- Dynamic filter buttons will be created here -->
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="palaces">Palaces</button>
+                <button class="filter-btn" data-filter="lakes">Lakes</button>
+                <button class="filter-btn" data-filter="ghats">Ghats</button>
+                <button class="filter-btn" data-filter="bazaar">Bazaar</button>
+                <button class="filter-btn" data-filter="temples">Temples</button>
+                <button class="filter-btn" data-filter="museums">Museums</button>
+                <button class="filter-btn" data-filter="gardens">Gardens</button>
+                <button class="filter-btn" data-filter="restaurants">Restaurants & Cafes</button>
             </div>
         </div>
     </section>
@@ -56,8 +64,15 @@
     <!-- Gallery Grid -->
     <section class="gallery-section">
         <div class="container">
-            <div class="gallery-grid">
-                <!-- Dynamic gallery items will be loaded here -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Images will be dynamically loaded here -->
+            </div>
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading images...</p>
+            </div>
+            <div class="no-images-message" id="noImagesMessage" style="display: none;">
+                <p>No images found for this category.</p>
             </div>
         </div>
     </section>
@@ -82,6 +97,6 @@
     </div>
 </footer>
 
-    <script src="dynamic-gallery.js"></script>
+    <script src="gallery-script.js"></script>
 </body>
 </html>
