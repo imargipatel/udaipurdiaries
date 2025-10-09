@@ -367,11 +367,10 @@ h6 {
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
-    /* Better handling for different image orientations */
-    background-color: #f8f9fa;
-    /* Ensure proper image loading on all devices */
     display: block;
-    max-width: 100%;
+    /* Debug: ensure images are visible */
+    opacity: 1;
+    visibility: visible;
 }
 
 .flip-card:hover .flip-card-front img {
@@ -876,11 +875,7 @@ h6 {
             height: 100%;
             object-fit: cover;
             object-position: center;
-            /* Ensure images load properly on mobile */
             display: block;
-            max-width: 100%;
-            height: auto;
-            min-height: 100%;
         }
 
         .flip-card-front h3 {
@@ -952,11 +947,7 @@ h6 {
             height: 100%;
             object-fit: cover;
             object-position: center;
-            /* Ensure images load properly on small mobile */
             display: block;
-            max-width: 100%;
-            height: auto;
-            min-height: 100%;
         }
 
         .flip-card-front h3 {
