@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!filterButtons.length || !galleryGrid) return;
 
+    // Global variables for keyboard navigation
+    let currentImageIndex = 0;
+    let currentImages = [];
+    let currentCategory = 'all';
+
     // Image data mapping - maps filter categories to folder names and image info
     const imageData = {
         'palaces': {
@@ -130,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadCategoryImages(category) {
         showLoading();
         galleryGrid.innerHTML = '';
+        currentCategory = category;
+        
+        // Reset current images array
+        currentImages = [];
         
         if (category === 'all') {
             // Load all categories
@@ -137,6 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageData[cat].images.forEach(imageInfo => {
                     const galleryItem = createGalleryItem(imageInfo, cat);
                     galleryGrid.insertAdjacentHTML('beforeend', galleryItem);
+                    // Add to current images array for navigation
+                    currentImages.push({
+                        src: `assets/images/gallery/${imageData[cat].folder}/${imageInfo.name}`,
+                        alt: imageInfo.title,
+                        title: imageInfo.title
+                    });
                 });
             });
         } else if (imageData[category]) {
@@ -144,6 +159,12 @@ document.addEventListener('DOMContentLoaded', () => {
             imageData[category].images.forEach(imageInfo => {
                 const galleryItem = createGalleryItem(imageInfo, category);
                 galleryGrid.insertAdjacentHTML('beforeend', galleryItem);
+                // Add to current images array for navigation
+                currentImages.push({
+                    src: `assets/images/gallery/${imageData[category].folder}/${imageInfo.name}`,
+                    alt: imageInfo.title,
+                    title: imageInfo.title
+                });
             });
         }
         
@@ -197,18 +218,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const caption = document.getElementById('caption');
         const closeBtn = document.querySelector('.close');
 
-        galleryItems.forEach(img => {
-            img.addEventListener('click', () => {
-                modal.style.display = 'block';
-                modalImg.src = img.src;
-                caption.textContent = img.alt;
+        galleryItems.forEach((img, index) => {
+            // Add double-click handler for opening modal
+            img.addEventListener('dblclick', (e) => {
+                e.preventDefault();
+                currentImageIndex = index;
+                openModal(img);
+            });
+
+            // Add single-click handler for hover effect (optional)
+            img.addEventListener('click', (e) => {
+                // Prevent default to avoid conflicts
+                e.preventDefault();
             });
         });
 
         // Close modal functionality
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
+                closeModal();
             });
         }
 
@@ -216,9 +244,104 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modal) {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    modal.style.display = 'none';
+                    closeModal();
                 }
             });
+        }
+
+        // Close modal with Escape key and navigate with arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'block') {
+                switch(e.key) {
+                    case 'Escape':
+                        closeModal();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        navigateToNextImage();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        navigateToPreviousImage();
+                        break;
+                }
+            }
+        });
+    }
+
+    // Function to open modal with proper image sizing
+    function openModal(img) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const caption = document.getElementById('caption');
+
+        modal.style.display = 'block';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        
+        // Update image counter
+        updateImageCounter();
+
+        // Ensure image loads properly
+        modalImg.onload = () => {
+            // Reset any inline styles that might cause distortion
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '95%';
+            modalImg.style.maxHeight = '95%';
+            modalImg.style.objectFit = 'contain';
+        };
+
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Function to close modal
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Function to navigate to next image
+    function navigateToNextImage() {
+        if (currentImages.length === 0) return;
+        
+        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+        updateModalImage();
+    }
+
+    // Function to navigate to previous image
+    function navigateToPreviousImage() {
+        if (currentImages.length === 0) return;
+        
+        currentImageIndex = currentImageIndex === 0 ? currentImages.length - 1 : currentImageIndex - 1;
+        updateModalImage();
+    }
+
+    // Function to update modal image
+    function updateModalImage() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const caption = document.getElementById('caption');
+        
+        if (currentImages[currentImageIndex]) {
+            modalImg.src = currentImages[currentImageIndex].src;
+            modalImg.alt = currentImages[currentImageIndex].alt;
+            caption.textContent = currentImages[currentImageIndex].title;
+            
+            // Update image counter if it exists
+            updateImageCounter();
+        }
+    }
+
+    // Function to update image counter display
+    function updateImageCounter() {
+        const caption = document.getElementById('caption');
+        if (currentImages.length > 1) {
+            caption.textContent = `${currentImages[currentImageIndex].title} (${currentImageIndex + 1} of ${currentImages.length})`;
+        } else {
+            caption.textContent = currentImages[currentImageIndex].title;
         }
     }
 
