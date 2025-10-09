@@ -865,17 +865,34 @@ h6 {
 
     /* Mobile-specific flip card improvements */
     .flip-card-front img {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background-color: #f8f9fa;
-        padding: 10px;
+        height: 70%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .flip-card-front {
         background-color: #f8f9fa;
+        position: relative;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .flip-card-front h3 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        color: white;
+        padding: 1rem;
+        margin: 0;
+        z-index: 10;
+        font-size: 1.3rem;
     }
 
     .gallery-grid {
@@ -925,20 +942,21 @@ h6 {
 
     /* Enhanced mobile flip card image handling */
     .flip-card-front img {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background-color: #f8f9fa;
-        padding: 15px;
-        max-height: 100%;
-        max-width: 100%;
+        height: 65%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .flip-card-front {
         background-color: #f8f9fa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     .flip-card-front::before {
@@ -952,9 +970,17 @@ h6 {
         z-index: 1;
     }
 
-    .flip-card-front img {
-        position: relative;
-        z-index: 2;
+    .flip-card-front h3 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 0.8rem;
+        margin: 0;
+        z-index: 10;
+        font-size: 1.2rem;
     }
 
     /* Touch-friendly flip cards for mobile */
@@ -1509,12 +1535,27 @@ h6 {
 }
 
 .flip-card-front.portrait-image img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
-    max-width: 90%;
-    max-height: 90%;
-    padding: 20px;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: transparent;
+}
+
+/* Mobile-specific portrait image handling */
+@media (max-width: 768px) {
+    .flip-card-front.portrait-image img {
+        height: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .flip-card-front.portrait-image img {
+        height: 55%;
+    }
 }
 
 /* Landscape Image Handling */
